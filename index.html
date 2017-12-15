@@ -2,31 +2,10 @@
 <html>
 <head><title>Lazslo's Pizza</title></head>
 <body>
-
-
 <h1>Lazslo's Pizza</h1>
-</br></br>
 <h2>2 Large Supreme Pizzas..... $<span id="pizzaprice"></span></h2>
-
-
-<script>
-
-function addCommas(intNum) {
-  return (intNum + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
-}
-
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var coindesk = JSON.parse(this.responseText);
-        var usd = parseFloat(coindesk.bpi.USD.rate.replace(/,/g, ''));
-        var pizza = 2000*usd;
-        document.getElementById("pizzaprice").innerHTML = pizza.toLocaleString();
-    }
-};
-xmlhttp.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json", true);
-xmlhttp.send();
-
+<script type="text/javascript">
+fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(function(r) {return r.json();}).then(function(d){ document.getElementById("pizzaprice").innerHTML = (2000*d.bpi.USD.rate.replace(/,/g,'')).toLocaleString();});
 </script>
 </body>
 </html>
