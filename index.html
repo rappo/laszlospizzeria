@@ -2,8 +2,8 @@
 <html>
 <head><title>Lazslo's Pizza</title></head>
 <body>
-<p style="text-align:center;"><img alt="Lazslo's Pizza logo" src="logo.png">
-<h2>2 Large Supreme Pizzas..... $<span id="pizzaprice"></span></h2>
+<p style="text-align:center;"><img alt="Lazslo's Pizza logo" src="logo.png"></p>
+<h2 align="center">2 Large Supreme Pizzas..... $<span id="pizzaprice"></span></h2>
 </p>
 <script type="text/javascript">
 fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(function(r) {return r.json();}).then(function(d){ document.getElementById("pizzaprice").innerHTML = (2000*d.bpi.USD.rate.replace(/,/g,'')).toLocaleString();});
