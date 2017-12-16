@@ -3,7 +3,9 @@
 <head><title>Laszlo's Pizzeria</title></head>
 <body>
 <p style="text-align:center;"><img alt="Laszlo's Pizzeria logo" src="logo.png"></p>
+<h1 align="center">TODAY'S SPECIAL</h1>
 <h2 align="center">2 Large Supreme Pizzas..... $<span id="pizzaprice"></span></h2>
+<div style="position: absolute;right: 0;bottom: 3rem;left: 0;padding: 1rem;text-align: center;"><p>share on <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//laszlospizzeria.com/">facebook</a> <a href="https://twitter.com/home?status=How%20much%20is%20Laszlo's%2010,000BTC%20pizza%20worth%20today?%20http%3A//laszlospizzeria.com/">twitter</a></p></div>
 <div style="position: absolute;right: 0;bottom: 0;left: 0;padding: 1rem;text-align: center;"><p><small>Based on the 10,000BTC pizzas purchased by <a href="https://en.bitcoin.it/wiki/Laszlo_Hanyecz">laszlo</a> on May 22, 2010 (now known as Bitcoin Pizza Day). Powered by <a href="https://www.coindesk.com/price/">CoinDesk</a>.</small></p></div>
 <script type="text/javascript">
 fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(function(r) {return r.json();}).then(function(d){ document.getElementById("pizzaprice").innerHTML = (10000*d.bpi.USD.rate.replace(/,/g,'')).toLocaleString();});
