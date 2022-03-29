@@ -22,7 +22,7 @@
 				<a href="https://twitter.com/home?status=How%20much%20is%20Laszlo's%2010,000BTC%20pizza%20worth%20today?%20http%3A//laszlospizzeria.com/"><img alt="twitter" src="Twitter.png"></a>
 			</li>
 		</ul>
-		<p><small>Based on the 10,000BTC pizzas purchased by <a href="https://en.bitcoin.it/wiki/Laszlo_Hanyecz">laszlo</a> on May 22, 2010 (now known as Bitcoin Pizza Day). Powered by <a href="https://www.coindesk.com/price/">CoinDesk</a>.</small></p>
+		<p><small>Based on the 10,000BTC pizzas purchased by <a href="https://en.bitcoin.it/wiki/Laszlo_Hanyecz">laszlo</a> on May 22, 2010 (now known as Bitcoin Pizza Day). Powered by <a href="https://www.coindesk.com/price/">CoinDesk</a>.</br><font color="gray">btc 39cSjmYtYGpy8J64jqJoNyoiKTSjH55Xmt</br>eth 0x190ca5A1540A5c31dCd25A5cC05223Bbb159BA44</br>doge DEGZFNHpjcwHiHC7HHSSdK3fjMBTeyAkrU</br>usdc 0x40B40F9F4EFDADED387467b84b1b8B275655F894</font></small></p>
 	</div>
 	<script type="text/javascript">
 fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(function(r) {return r.json();}).then(function(d){ document.getElementById("pizzaprice").innerHTML = (10000*d.bpi.USD.rate.replace(/,/g,'')).toLocaleString();});
