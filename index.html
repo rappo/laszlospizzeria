@@ -25,7 +25,14 @@
 		<p><small>Based on the 10,000BTC pizzas purchased by <a href="https://en.bitcoin.it/wiki/Laszlo_Hanyecz">laszlo</a> on May 22, 2010 (now known as Bitcoin Pizza Day). Powered by <a href="https://www.coindesk.com/price/">CoinDesk</a>.</br></br><font color="lightgray">btc 39cSjmYtYGpy8J64jqJoNyoiKTSjH55Xmt</br>doge DEGZFNHpjcwHiHC7HHSSdK3fjMBTeyAkrU</br>eth 0x190ca5A1540A5c31dCd25A5cC05223Bbb159BA44</br>usdc 0x40B40F9F4EFDADED387467b84b1b8B275655F894</font></small></p>
 	</div>
 	<script type="text/javascript">
-fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(function(r) {return r.json();}).then(function(d){ document.getElementById("pizzaprice").innerHTML = (10000*d.bpi.USD.rate.replace(/,/g,'')).toLocaleString();});
+fetch("https://data-api.coindesk.com/index/cc/v1/latest/tick?market=cadli&instruments=BTC-USD&apply_mapping=true")
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    const price = d.data['BTC-USD'].VALUE;
+    const pizzaPrice = 10000 * price;
+    document.getElementById("pizzaprice").innerHTML = pizzaPrice.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+  });
+
 	</script>
 </body>
 </html>
