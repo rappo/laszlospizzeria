@@ -28,7 +28,7 @@
 fetch("https://data-api.coindesk.com/index/cc/v1/latest/tick?market=cadli&instruments=BTC-USD&apply_mapping=true")
   .then(function(r) { return r.json(); })
   .then(function(d) {
-    const price = d.data['BTC-USD'].VALUE;
+    const price = d.Data['BTC-USD'].VALUE;
     const pizzaPrice = 10000 * price;
     document.getElementById("pizzaprice").innerHTML = pizzaPrice.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
   });
